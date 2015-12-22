@@ -1,0 +1,40 @@
+// ==UserScript==
+// @name         Milan Edison - 3 sec
+// @namespace    http://www.jjhuddle.com/forums/forum/ohio-high-school-football-headquarters/football-north/1293812-national-guard-jjh-ohio-hs-fb-team-of-the-year-award-vote-now
+// @version      1.0
+// @grant        none
+// @description  Searches the page for the verification question being asked, and then fills in the textbox automatically with the correlated answer.
+// @include      http://www.jjhuddle.com/forums/forum/ohio-high-school-football-headquarters/football-north/1293812-national-guard-jjh-ohio-hs-fb-team-of-the-year-award-vote-now
+// ==/UserScript==
+/* jshint -W097 */
+'use strict';
+
+var answers = ["s", "green", "nut", 24, "bengals", "gray", 50, "green", 23, "dog", 18, 90];
+var questions = ['The fourth letter in the word "Reds" is?','What color is grass?','A buckeye is a what?',"What's 6x4?",'The NFL team in Cincinnati is called the?','The OSU Buckeys are Scarlet and?','35 + 15 is?','Yellow + Blue is?','LeBron James wears #?','Lassie was a what?','2x9 is what?',"What's 9x10?"];
+var question = document.getElementsByClassName('description')[0].innerText;
+var found = 0;
+var answer = 0;
+
+//browses questions variable for match to question variable, then assigns the correlating index to found, and assigns the answer to the answer variable, as pulled from the answers variable
+for (var find = 0; find <= questions.length; find++) {
+  if (question === questions[find]) {
+    found = find;
+    answer = answers[found];
+  }
+}
+
+//checks the assigned radio, fills the textbox with the answer, and clicks the Vote button
+var submit = function (){
+    document.getElementsByName('polloptionid')[3].checked = true;
+    document.getElementById("humanverify").value = answer;
+    document.getElementsByName("vote")[0].click();
+}
+
+submit();
+
+//allows for a slight delay so that the page can load before cycling through script again
+var reload = function () {
+    location.reload();
+}
+
+setTimeout(reload, 3000);
