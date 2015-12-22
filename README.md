@@ -27,3 +27,6 @@ To use your new script, simply click on that green button; a new tab will open d
 ##### Deactivating the script
 The easiest way to deactivate the script is from the Dashboard. To get to the Dashboard, click on the Tampermonkey button at the top right side of your Chrome browser causing the menu to drop down. Near the bottom of the left column of the menu is the "Dashboard" option. Left click it once, and the Tampermonkey Dashboard will open in a new tab. As stated previously, simply click on the green circular "1" button next to the script to deactivate the script (and causing the green circle button to turn into a red square). With the scripte deactiveated, it will stop running on the voting pages as soon as it completes its current iteration.
 
+
+# "Help! I'm lost!"
+If these instructions aren't clear, or if you need assistance, feel free to message me and I will help you implement the script.
